@@ -10,7 +10,7 @@ const chargeProductsDB = require("./Controllers/ProductChargeDB.js")
 
 
 app.listen(PORT,()=>{
-     db.sync({force:true})
+     db.sync({force:false})
     .then(()=>chargeProductsDB())
     //.then(()=>chargeBrandsDB() )
     //.then(()=>chargeOsDB() )
