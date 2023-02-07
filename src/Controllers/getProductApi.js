@@ -8,6 +8,7 @@ const getProducts = async () => {
     let productsMotorola = await axios("https://api.mercadolibre.com/sites/MLA/search?q=Motorola");
     productsMotorola = productsMotorola.data.results.slice(0, 25);
     const cellphonesMotorola = productsMotorola.map(e => {
+        
         let img = e.thumbnail;
         let identfier = img.slice(28, 56)
         let image = "https://http2.mlstatic.com/D_NQ_NP_" + identfier + "-O.webp"
@@ -30,6 +31,7 @@ const getProducts = async () => {
     let productsSamsung = await axios("https://api.mercadolibre.com/sites/MLA/search?q=Samsung");
     productsSamsung = productsSamsung.data.results.slice(0, 25);
     const cellphonesSamsung = productsSamsung.map(e => {
+        
         let img = e.thumbnail;
         let identfier = img.slice(28, 56)
         let image = "https://http2.mlstatic.com/D_NQ_NP_" + identfier + "-O.webp"
@@ -50,9 +52,11 @@ const getProducts = async () => {
     let productsHuawei = await axios("https://api.mercadolibre.com/sites/MLA/search?q=Huawei");
     productsHuawei = productsHuawei.data.results.slice(0, 25);
     const cellphonesHuawei = productsHuawei.map(e => {
+        
         let img = e.thumbnail;
         let identfier = img.slice(28, 56)
         let image = "https://http2.mlstatic.com/D_NQ_NP_" + identfier + "-O.webp"
+        
         return {
             model: e.title,
             color: colors[Math.ceil(Math.random() * 5)],
@@ -69,9 +73,11 @@ const getProducts = async () => {
     let productsIphone = await axios("https://api.mercadolibre.com/sites/MLA/search?q=Iphone");
     productsIphone = productsIphone.data.results.slice(0, 25);
     const cellphonesIphone = productsIphone.map(e => {
+        
         let img = e.thumbnail;
         let identfier = img.slice(28, 56)
         let image = "https://http2.mlstatic.com/D_NQ_NP_" + identfier + "-O.webp"
+        
         return {
             model: e.title,
             color: colors[Math.ceil(Math.random() * 5)],
