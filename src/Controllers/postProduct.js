@@ -10,7 +10,7 @@ const addProduct = async(req, res) => {
         let createProduct = await Product.create({
             marca,
             model,
-            condition, 
+            condition: condition.toLowerCase(), 
             price, 
             color, 
             ram, 
