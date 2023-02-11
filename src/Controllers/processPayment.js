@@ -1,4 +1,4 @@
-const {HOME_DEPLOY} = process.env
+//const {HOME_DEPLOY} = process.env
 const mercadopago = require('mercadopago')
 
 mercadopago.configure({ access_token: process.env.MERCADOPAGO_KEY})
@@ -18,7 +18,7 @@ const payment = (req,res) => {
             unit_price: product.price 
         }],
         back_urls : {
-            success : `${HOME_DEPLOY}'/home'`,
+            success : "https://frontpf-production-eafa.up.railway.app/home",
             failure : '',
             pending : '',
         },
