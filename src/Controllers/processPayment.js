@@ -2,7 +2,7 @@
 const mercadopago = require('mercadopago')
 
 mercadopago.configure({ access_token: process.env.MERCADOPAGO_KEY})
-console.log(HOME_DEPLOY)
+//console.log(HOME_DEPLOY)
 
 const payment = (req,res) => {
     const {product}= req.body;
