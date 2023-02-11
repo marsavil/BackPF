@@ -18,7 +18,7 @@ const payment = (req,res) => {
             unit_price: product.price 
         }],
         back_urls : {
-            success : `http:localhost:3000/home'`,
+            success : `http:localhost:3000/home`,
             failure : '',
             pending : '',
         },
