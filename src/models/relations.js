@@ -1,19 +1,8 @@
 const user =require('./user')
 const product =require('./product')
-const brand =require('./brand')
-const os =require('./os')
+//const comment = require('./Comment')
 
-user.sync()
+user.sync();
+// comment.sync();
+// product.sync();
 
-// product.hasOne(brand)
-// product.hasOne(os)
-
-// brand.hasMany(product)
-// os.hasMany(product)
-
-
-
-// Foo.hasOne(Bar, {
-//     foreignKey: 'myFooId'
-//   });
-//   Bar.belongsTo(Foo)

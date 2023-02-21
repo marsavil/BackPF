@@ -1,11 +1,16 @@
 let express = require("express");
 let router = express.Router();
-let simpleResponse = require("../middleware/simpleresponse");
-let createUser = require("../Controllers/postUser.js")
-let getUser = require("../Controllers/getUser.js")
+let {createUser, confirm} = require("../Controllers/postUser.js")
+let getUser = require("../Controllers/getUsers.js");
+const getUserByEmail = require("../Controllers/getUserByEmail");
+const hideUser = require('../Controllers/hideUser')
+const restoreUser = require('../Controllers/restoreUser')
 
 router.get("/:id", getUser);
+router.get("/email/:email", getUserByEmail)
 router.post("/signup", createUser);
-router.patch("/", simpleResponse);
+router.put('/hide', hideUser)
+router.put('/restore', restoreUser)
+router.post("/confirm/*", confirm)
 
 module.exports = router;

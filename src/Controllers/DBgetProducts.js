@@ -2,7 +2,6 @@ const product = require("../models/product.js");
 
 const getProductDB = async(req,res)=>{
     const {name} = req.query;
-    console.log(name)
     if(name){
         try {
             const products = await product.findAll();
@@ -13,7 +12,11 @@ const getProductDB = async(req,res)=>{
         }
     }else{
         try {
-            const products = await product.findAll();
+            const products = await product.findAll({
+                where :{
+                    visible : true
+                }
+            });
             res.status(200).send(products)
         } catch (error) {
             res.status(400).send({error: error.message})

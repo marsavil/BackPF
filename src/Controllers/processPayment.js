@@ -1,33 +1,34 @@
-//const {HOME_DEPLOY} = process.env
-const mercadopago = require('mercadopago')
+const mercadopago = require("mercadopago");
 
-mercadopago.configure({ access_token: process.env.MERCADOPAGO_KEY})
-//console.log(HOME_DEPLOY)
+mercadopago.configure({ access_token: process.env.MERCADOPAGO_KEY });
 
-const payment = (req,res) => {
-    const {product}= req.body;
-    const preference = {
-        items : [{
-            id : product.id,
-            title : product.model,
-            currency_id : 'ARS',
-            picture_url : product.image,
-            description : product.marca +' '+ product.model,
-            category_id : 'cellPhones',
-            quantity: req.body.quantity,
-            unit_price: product.price 
-        }],
-        back_urls : {
-            success : "https://frontpf-production-eafa.up.railway.app/home",
-            failure : '',
-            pending : '',
-        },
-        auto_return : 'approved',
-        binary_mode : true,
-    }
-    mercadopago.preferences.create(preference)
-    .then((response) => res.status(200).send({response}))
-    .catch((error) => res.status(400).send({error: error.message}))
-}
+const payment = (req, res) => {
+  const products = req.body.items;
+  const preference = {
+    items: products.map((p) => {
+      return {
+        id: p.id,
+        title: p.model,
+        currency_id: "ARS",
+        picture_url: p.image,
+        description: p.marca + " " + p.model,
+        category_id: "cellPhones",
+        quantity: p.quantity,
+        unit_price: p.price,
+      };
+    }),
+    back_urls: {
+      success: "http://localhost:3000/payment",
+      failure: "",
+      pending: "",
+    },
+    auto_return: "approved",
+    binary_mode: true,
+  };
+  mercadopago.preferences
+    .create(preference)
+    .then((response) => res.status(200).send({ response }))
+    .catch((error) => res.status(400).send({ error: error.message }));
+};
 
 module.exports = payment;
