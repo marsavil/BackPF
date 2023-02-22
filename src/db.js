@@ -19,7 +19,7 @@ const {
 //     define: {
 //     timestamps: false
     
-}})
+//}})
 
 //Deploy
 const DB = new Sequelize(DB_DEPLOY,{
