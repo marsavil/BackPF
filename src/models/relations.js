@@ -1,4 +1,4 @@
-const user =require('./user')
+const user =require('./User')
 const product =require('./product')
 //const comment = require('./Comment')
 
