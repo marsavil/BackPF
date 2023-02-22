@@ -8,6 +8,7 @@ const restoreUser = require('../Controllers/restoreUser')
 
 router.get("/:id", getUser);
 router.get("/email/:email", getUserByEmail)
+router.get("/login/:email&:password", getUserByEmail)
 router.post("/signup", createUser);
 router.put('/hide', hideUser)
 router.put('/restore', restoreUser)
