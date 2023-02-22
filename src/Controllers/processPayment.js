@@ -18,7 +18,7 @@ const payment = (req, res) => {
       };
     }),
     back_urls: {
-      success: "http://localhost:3000/payment",
+      success: "https://frontpf-production-eafa.up.railway.app/payment",
       failure: "",
       pending: "",
     },
