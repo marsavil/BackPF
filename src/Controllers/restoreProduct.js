@@ -1,6 +1,6 @@
 const Product = require('../models/product');
 
-const hideProduct = async(req, res) => {
+const restoreProduct = async(req, res) => {
   
   const {id} = req.body
   
@@ -19,4 +19,4 @@ const hideProduct = async(req, res) => {
   }
 };
 
-module.exports = hideProduct;
+module.exports = restoreProduct;
