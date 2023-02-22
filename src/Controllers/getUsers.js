@@ -1,5 +1,5 @@
 
-const Users = require("../models/user.js");
+const Users = require("../models/User.js");
 
 
 const getUsers = async (req, res) => {
