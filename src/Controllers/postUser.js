@@ -77,7 +77,7 @@ const createUser = async(req, res) => {
         user.status = "VERIFIED";
         await user.save();
         //return res.redirect("http://localhost:3000/home");
-        return res.redirect("https://frontpf-production-eafa.up.railway.app/")
+        return res.redirect("https://frontpf-production-eafa.up.railway.app/home")
       } catch (error) {
         return res.json({
           success: false,

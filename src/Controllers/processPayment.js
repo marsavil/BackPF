@@ -1,11 +1,14 @@
 const mercadopago = require("mercadopago");
+const product = require("../models/product");
+const Product = require('../models/product')
 
 mercadopago.configure({ access_token: process.env.MERCADOPAGO_KEY });
 
-const payment = (req, res) => {
+const payment = async (req, res) => {
   const products = req.body.items;
-  const preference = {
+  const preference = await {
     items: products.map((p) => {
+
       return {
         id: p.id,
         title: p.model,
@@ -25,6 +28,8 @@ const payment = (req, res) => {
     auto_return: "approved",
     binary_mode: true,
   };
+  
+  
   mercadopago.preferences
     .create(preference)
     .then((response) => res.status(200).send({ response }))
