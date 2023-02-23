@@ -7,7 +7,7 @@ const getProductById = require("../Controllers/getProductById");
 const orderProductByBrand = require('../Controllers/orderProductByBrand');
 const orderByPrice = require("../Controllers/orderProductByPrice");
 const hideProduct = require('../Controllers/hideProduct')
-const restoreProduct = require('../controllers/restoreProduct')
+const restoreProduct = require('../Controllers/restoreProduct')
 
 
 
